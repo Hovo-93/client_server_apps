@@ -1,3 +1,7 @@
+import locale
+import subprocess
+import chardet
+
 """1. Каждое из слов «разработка», «сокет», «декоратор» представить в строковом формате и проверить тип и содержание
 соответствующих переменных. Затем с помощью онлайн-конвертера преобразовать строковые представление в формат Unicode
  и также проверить тип и содержимое переменных."""
@@ -52,32 +56,28 @@ print('=' * 30)
 
 """5. Выполнить пинг веб-ресурсов yandex.ru, youtube.com и преобразовать результаты из байтовового
  в строковый тип на кириллице."""
-import subprocess
-import chardet
 
 ARGS = ['ping', 'yandex.ru']
 ya_ping = subprocess.Popen(ARGS, stdout=subprocess.PIPE)
 for line in ya_ping.stdout:
     result = chardet.detect(line)
     print(line.decode(result['encoding']))
-print('='*30)
+print('=' * 30)
 
 ARGS = ['ping', 'youtube.com']
 ya_ping = subprocess.Popen(ARGS, stdout=subprocess.PIPE)
 for line in ya_ping.stdout:
     result = chardet.detect(line)
     print(line.decode(result['encoding']))
-print('='*30)
+print('=' * 30)
 """6. Создать текстовый файл test_file.txt, заполнить его тремя строками: «сетевое программирование», «сокет», 
 «декоратор». Проверить кодировку файла по умолчанию. Принудительно открыть файл в формате Unicode 
 и вывести его содержимое."""
-import locale
 F_N = open('test.txt', 'w', encoding='utf-8')
 F_N.write('сетевое программирование,сокет,декоратор')
 F_N.close()
 F_N = locale.getpreferredencoding()
-print(F_N,'Проверка кодировки по умолчанию')
-with open('test.txt',encoding='utf-8') as f_n:
+print(F_N, 'Проверка кодировки по умолчанию')
+with open('test.txt', encoding='utf-8') as f_n:
     for line in f_n:
         print(line)
-
