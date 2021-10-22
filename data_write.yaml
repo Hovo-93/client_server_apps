@@ -1,0 +1,11 @@
+dictionary:
+  configuration:
+    ssh:
+      access: 'true'
+      login: some
+      password: some
+list:
+- x
+- y
+- z
+number: 999
