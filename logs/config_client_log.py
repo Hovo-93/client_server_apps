@@ -3,10 +3,8 @@
 import sys
 import os
 import logging
-from common.variables import LOGGING_LEVEL
+from lesson_7.practice.common.variables import LOGGING_LEVEL
 sys.path.append('../')
-
-from datetime import datetime
 
 # создаём формировщик логов (formatter):
 CLIENT_FORMATTER = logging.Formatter('%(asctime)s %(levelname)s %(filename)s %(message)s')
